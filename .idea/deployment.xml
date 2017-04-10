@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData" autoUpload="Always" serverName="FTP-Master">
+  <component name="PublishConfigData">
     <serverData>
       <paths name="FTP-Master">
         <serverdata>
           <mappings>
-            <mapping deploy="/253074/dillapo.com/htdocs/engine/Shopware/Plugins/Local/" local="$PROJECT_DIR$" web="/" />
+            <mapping local="$PROJECT_DIR$" web="/" />
           </mappings>
         </serverdata>
       </paths>
@@ -24,6 +24,5 @@
         </serverdata>
       </paths>
     </serverData>
-    <option name="myAutoUpload" value="ALWAYS" />
   </component>
 </project>
