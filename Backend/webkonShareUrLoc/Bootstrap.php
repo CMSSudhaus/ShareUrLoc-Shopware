@@ -8,9 +8,9 @@
 use ShopwarePlugins\ShareUrLoc\Subscriber;
 
 
-class Shopware_Plugins_Frontend_ShareUrLoc_Bootstrap extends Shopware_Components_Plugin_Bootstrap {
+class Shopware_Plugins_Backend_webkonShareUrLoc_Bootstrap extends Shopware_Components_Plugin_Bootstrap {
     private $jsonConfig;
-    public function loadJsonConfig($proptery){
+    public function jsonConfig($proptery){
         if(empty($this->jsonConfig)){
             $this->jsonConfig = json_decode(file_get_contents(__DIR__.DIRECTORY_SEPARATOR.'plugin.json'), true);
         }
@@ -28,7 +28,7 @@ class Shopware_Plugins_Frontend_ShareUrLoc_Bootstrap extends Shopware_Components
     }
     public function getLabel()
     {
-        if ($label = $this->jsonConfig('currentVersion')) {
+        if ($label = $this->jsonConfig('label')) {
             return $label;
         } else {
             throw new Exception('The plugin has an invalid version file.');
@@ -50,7 +50,7 @@ class Shopware_Plugins_Frontend_ShareUrLoc_Bootstrap extends Shopware_Components
             'link' => $this->jsonConfig('link'),
             'support' => $this->jsonConfig('support'),
             'version' => $this->getVersion(),
-            'description' => file_get_contents(__DIR__.'/description.txt'),
+            'description' => file_get_contents(__DIR__.'/description.html'),
             'solution_name' => $this->getSolutionName()
         );
     }
@@ -74,6 +74,20 @@ class Shopware_Plugins_Frontend_ShareUrLoc_Bootstrap extends Shopware_Components
             'fieldLabel' => 'Layout',
             'allowBlank' => true
         ]);
+        /**
+         * Set Config Form
+         */
+        $form = $this->Form();
+        $form->setElement(
+            'text',
+            'apiKey',
+            array(
+                'label' => 'ShareUrLoc API Key',
+                'description' => 'Bitte fügen Sie den API key von www.shareurloc.com ein!',
+                'value' => null,
+                'scope' => Shopware\Models\Config\Element::SCOPE_SHOP
+            )
+        );
         /**
          * Subscribe to the post dispatch event of the emotion backend module to extend the components.
          */
@@ -147,8 +161,7 @@ class Shopware_Plugins_Frontend_ShareUrLoc_Bootstrap extends Shopware_Components
     }
     public function onEmotionAddElement($args)
     {
-        $subscriper = new Subscriber\Redirect();
-        $subscriper->handle($args, $this->Path());
+        $subscriper = new Subscriber\Emotion();
+        return $subscriper->handle($args, $this->Path());
     }
-
 }

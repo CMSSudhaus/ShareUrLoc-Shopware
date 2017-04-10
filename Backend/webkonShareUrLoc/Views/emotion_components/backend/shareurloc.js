@@ -28,13 +28,13 @@ Ext.define('Shopware.apps.Emotion.view.components.fields.ShareUrLocLayout', {
         var me = this;
 
          Ext.apply(me, {
-         emptyText: me.snippets.fields.empty_text,
-         fieldLabel: me.snippets.fields.shareurloc_layout,
-         displayField: 'display',
-         valueField: 'value',
-         queryMode: 'local',
-         triggerAction: 'all',
-         store: me.createStore()
+             emptyText: me.snippets.fields.empty_text,
+             fieldLabel: me.snippets.fields.shareurloc_layout,
+             displayField: 'display',
+             valueField: 'value',
+             queryMode: 'local',
+             triggerAction: 'all',
+             store: me.createStore()
          });
         me.callParent(arguments);
     },

@@ -1,11 +1,11 @@
 {
-  "label": "ShareUrLoc Plugin",
-  "author": "web kon Internetagentur",
-  "copyright": "Copyright © 2017, web kon Internetagentur",
+  "label": "ShareUrLoc Connector",
+  "author": "web-kon Internetagentur",
+  "copyright": "Copyright © 2017, web-kon Internetagentur",
   "link": "http://web-kon.de",
-  "support": "d.persky@gutenberghaus.de",
+  "support": "technik@web-kon.de",
   "currentVersion": "1.0.0",
-  "solution_name": "shareurloc",
+  "solution_name": "webkon",
   "changelogs": {
     "de": {},
     "en": {}
